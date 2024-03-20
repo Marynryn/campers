@@ -1,3 +1,9 @@
+import { Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
+
+// const WelcomePage = lazy(() => import('pages/WelcomePage'));
+
+
 export const App = () => {
   return (
     <div
@@ -10,7 +16,18 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      React homework template
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route
+            path="/catalog"
+            element={<Catalog />} />
+          <Route
+            path="/login"
+            element={<Favorites />} />
+
+        </Route>
+      </Routes>
     </div>
   );
 };
