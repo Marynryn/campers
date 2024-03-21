@@ -12,7 +12,7 @@ const mySlice = createSlice({
     filter: '',
   },
   reducers: {
-    addFilter: (state, action) => {
+    setFilter: (state, action) => {
       state.filter = action.payload;
     },
   },
@@ -34,4 +34,4 @@ const mySlice = createSlice({
 });
 
 export const advertsReducer = mySlice.reducer;
-export const { addFilter } = mySlice.actions;
+export const { setFilter } = mySlice.actions;

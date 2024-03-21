@@ -1,33 +1,24 @@
-import { Route, Routes } from 'react-router-dom';
-import { lazy } from 'react';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
-// const WelcomePage = lazy(() => import('pages/WelcomePage'));
+import { Layout } from './Layout';
+import Home from 'pages/Home/Home';
+import Catalog from 'pages/Catalog/Catalog';
 
+// const Layout = lazy(() => import('./Layout'));
+// const Home = lazy(() => import('../pages/Home/Home'));
+// const Catalog = lazy(() => import('../pages/Catalog/Catalog'));
+// const Favorites = lazy(() => import('../pages/Favorites/Favorites'));
 
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route
-            path="/catalog"
-            element={<Catalog />} />
-          <Route
-            path="/login"
-            element={<Favorites />} />
 
-        </Route>
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="/catalog" element={<Catalog />} />
+        {/* <Route path="/favorites" element={<Favorites />} /> */}
+        <Route path="*" element={<Navigate to="/" />} />
+      </Route>
+    </Routes>
   );
 };

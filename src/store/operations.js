@@ -7,8 +7,9 @@ export const fetchAdverts = createAsyncThunk(
   'contacts/fetchAllContacts',
   async (_, thunkAPI) => {
     try {
-      const { contacts } = await axios.get('/advert');
-      return contacts;
+      const { data } = await axios.get('/advert');
+
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
