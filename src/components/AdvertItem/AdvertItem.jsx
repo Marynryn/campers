@@ -1,10 +1,22 @@
 import Rating from "components/Rating/Rating";
-
 import Location from "components/Location/Location";
-import Features from "components/Features/Features";
+import Equipment from "components/Equipment/Equipment";
 import Price from "components/Price/Price";
 
+
+import Modal from "components/Modal/Modal";
+import { useState } from "react";
+
 const AdvertItem = ({ props }) => {
+
+
+    const [openModal, setModal] = useState(false);
+    const handleOpenModal = () => {
+        setModal(true);
+    };
+    const handleCloseModal = () => {
+        setModal(false);
+    };
     return (
         <div>
             <div>
@@ -16,8 +28,12 @@ const AdvertItem = ({ props }) => {
                 <Rating props={props} />
                 <Location props={props} />
                 <p>{props.description}</p>
-                <Features props={props} />
-                <button className="" type="button">Show more</button>
+                <Equipment props={props} />
+                {openModal && (
+                    <Modal onClose={handleCloseModal} props={props} />
+
+                )}
+                <button className="" type="button" onClick={handleOpenModal} >Show more</button>
             </div>
         </div>
     )

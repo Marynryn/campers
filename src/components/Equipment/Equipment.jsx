@@ -1,9 +1,6 @@
-import Details from "components/Details/Details";
 import sprite from "../img/sprite.svg"
-import BookingForm from "components/BookingForm/BookingForm";
 
-
-const Features = ({ props }) => {
+const Equipment = ({ props }) => {
     return (
         <div>
             <div>
@@ -34,35 +31,16 @@ const Features = ({ props }) => {
                 <svg className="" width={16} height={16}>
                     <use href={`${sprite}#icon-Container-1`} />
                 </svg>
-                <p>{props.details.beds} beds</p>
+                <p>{props.beds} beds</p>
             </div>
             <div>
                 <svg className="" width={16} height={16}>
                     <use href="../img/Vector.svg" />
                 </svg>
-                <p>{props.details.airConditioner} air conditioner</p>
+                <p>AC</p>
             </div>
-            <div>
-                <svg className="" width={16} height={16}>
-                    <use href="../img/Vector.svg" />
-                </svg>
-                <p>CD</p>
-            </div>
-            <div>
-                <svg className="" width={16} height={16}>
-                    <use href="../img/Vector.svg" />
-                </svg>
-                <p>Radio</p>
-            </div>
-            <div>
-                <svg className="" width={16} height={16}>
-                    <use href="../img/Vector.svg" />
-                </svg>
-                <p>hob</p>
-            </div>
-            <Details props={props} />
-            <BookingForm />
+
         </div>
     )
 }
-export default Features;
+export default Equipment;

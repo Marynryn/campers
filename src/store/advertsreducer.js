@@ -9,11 +9,24 @@ const mySlice = createSlice({
       isLoading: false,
       error: null,
     },
-    filter: '',
+    filter: {
+      location: '',
+      equipment: [],
+      type: '',
+    },
   },
   reducers: {
     setFilter: (state, action) => {
-      state.filter = action.payload;
+      const { location, equipment, type } = action.payload;
+      if (location !== undefined) {
+        state.filter.location = location;
+      }
+      if (equipment !== undefined) {
+        state.filter.equipment = equipment;
+      }
+      if (type !== undefined) {
+        state.filter.type = type;
+      }
     },
   },
   extraReducers: builder => {
@@ -28,7 +41,7 @@ const mySlice = createSlice({
       })
       .addCase(fetchAdverts.rejected, (state, action) => {
         state.adverts.isLoading = false;
-        state.error = action.payload;
+        state.adverts.error = action.payload;
       });
   },
 });

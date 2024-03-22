@@ -1,13 +1,14 @@
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectGetAdverts } from "store/selectors";
-import { useEffect, useState } from "react";
 import { fetchAdverts } from "store/operations";
+import { selectVisibleAdverts } from "store/selectors"; // Импортируем селектор для отфильтрованных объявлений
 import AdvertItem from "components/AdvertItem/AdvertItem";
 
 const AdvertsList = () => {
     const dispatch = useDispatch();
-    const adverts = useSelector(selectGetAdverts);
-    const [displayedAdverts, setDisplayedAdverts] = useState([]);
+    const visibleAdverts = useSelector(selectVisibleAdverts);
+    console.log(visibleAdverts)// Используем селектор для отфильтрованных объявлений
+    const [displayedAdverts, setDisplayedAdverts] = useState([]); // Состояние для отображаемых объявлений
     const advertsPerPage = 4;
 
     useEffect(() => {
@@ -15,19 +16,19 @@ const AdvertsList = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        if (adverts.length > 0) {
-            setDisplayedAdverts(adverts.slice(0, advertsPerPage));
-        }
-    }, [adverts]);
+        // Отображаем только первую страницу отфильтрованных объявлений
+        setDisplayedAdverts(visibleAdverts.slice(0, advertsPerPage));
+    }, [visibleAdverts, advertsPerPage]);
 
     const handleLoadMore = () => {
+        // Получаем следующую страницу отфильтрованных объявлений
         const nextPage = Math.ceil(displayedAdverts.length / advertsPerPage) + 1;
         const startIndex = (nextPage - 1) * advertsPerPage;
-        const endIndex = Math.min(startIndex + advertsPerPage, adverts.length);
+        const endIndex = Math.min(startIndex + advertsPerPage, visibleAdverts.length);
 
         setDisplayedAdverts(prevAdverts => [
             ...prevAdverts,
-            ...adverts.slice(startIndex, endIndex)
+            ...visibleAdverts.slice(startIndex, endIndex)
         ]);
     };
 
@@ -40,8 +41,8 @@ const AdvertsList = () => {
                     </li>
                 ))}
             </ul>
-            {displayedAdverts.length < adverts.length && (
-                <button type="button" className="" onClick={handleLoadMore}>
+            {displayedAdverts.length < visibleAdverts.length && (
+                <button type="button" onClick={handleLoadMore}>
                     Load more
                 </button>
             )}

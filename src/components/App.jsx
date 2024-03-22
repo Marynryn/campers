@@ -4,6 +4,7 @@ import { Layout } from './Layout';
 import Home from 'pages/Home/Home';
 import Catalog from 'pages/Catalog/Catalog';
 
+
 // const Layout = lazy(() => import('./Layout'));
 // const Home = lazy(() => import('../pages/Home/Home'));
 // const Catalog = lazy(() => import('../pages/Catalog/Catalog'));
@@ -16,6 +17,7 @@ export const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/catalog" element={<Catalog />} />
+
         {/* <Route path="/favorites" element={<Favorites />} /> */}
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
