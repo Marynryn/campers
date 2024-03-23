@@ -2,15 +2,16 @@ import Rating from "components/Rating/Rating";
 import Location from "components/Location/Location";
 import Equipment from "components/Equipment/Equipment";
 import Price from "components/Price/Price";
-
+import css from "./AdvertItem.module.css"
 
 import Modal from "components/Modal/Modal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const AdvertItem = ({ props }) => {
 
 
     const [openModal, setModal] = useState(false);
+
     const handleOpenModal = () => {
         setModal(true);
     };
@@ -18,16 +19,18 @@ const AdvertItem = ({ props }) => {
         setModal(false);
     };
     return (
-        <div>
+        <div className={css.advert_box}>
             <div>
-                <img alt="car" src={props.gallery[0]} />
+                <img className={css.car_img} alt="car" src={props.gallery[0]} width={290} height={310} />
             </div>
-            <div>
-                <h3>{props.name}</h3>
-                <Price props={props} />
-                <Rating props={props} />
-                <Location props={props} />
-                <p>{props.description}</p>
+            <div className={css.about}>
+                <div className={css.about_header}>
+                    <h3 className={css.about_title}>{props.name}</h3>
+                    <Price props={props} /></div>
+                <div className={css.rating_location}><Rating props={props} />
+
+                    <Location props={props} /></div>
+                <p className={css.paragraph}>{props.description}</p>
                 <Equipment props={props} />
                 {openModal && (
                     <Modal onClose={handleCloseModal} props={props} />

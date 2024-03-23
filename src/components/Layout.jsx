@@ -1,18 +1,11 @@
 import { Outlet } from 'react-router-dom';
 // import { Toaster } from 'react-hot-toast';
 import { AppBar } from './AppBar/AppBar';
-
+import css from "./Layout.module.css"
 
 export const Layout = () => {
     return (
-        <div className="" style={{
-            height: '100vh',
-            display: 'block',
-            justifyContent: 'center',
-            alignItems: 'center',
-            fontSize: 40,
-            color: '#010101'
-        }}>
+        <div className={css.layout} >
             <AppBar />
             <Outlet />
 

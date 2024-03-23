@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-
+import css from "./Navigation.module.css"
 
 
 export const Navigation = () => {
@@ -7,14 +7,14 @@ export const Navigation = () => {
 
     return (
         <nav>
-            <NavLink className="" to="/">
+            <NavLink className={css.link} to="/">
                 Home
             </NavLink>
 
-            <NavLink className="" to="/catalog">
+            <NavLink className={css.link} to="/catalog">
                 Catalog
             </NavLink>
-            <NavLink className="" to="/favorites">
+            <NavLink className={css.link} to="/favorites">
                 Favorites
             </NavLink>
         </nav>

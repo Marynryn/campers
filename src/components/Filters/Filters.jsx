@@ -5,9 +5,10 @@ import FilterByEquipment from '../FilterByEquipment/FilterByEquipment';
 import { useDispatch } from 'react-redux';
 import { setFilter } from '../../store/advertsreducer';
 import FilterByType from 'components/FilterByType/FilterByType';
+import css from "./Filters.module.css"
 
 
-const ParentComponent = () => {
+const Filters = () => {
     const [location, setLocation] = useState('');
     const [equipment, setEquipment] = useState([]);
     const [type, setType] = useState('');
@@ -24,7 +25,7 @@ const ParentComponent = () => {
     };
 
     return (
-        <div>
+        <div className={css.filters_box}>
             <FilterLocation setLocation={setLocation} />
             <FilterByEquipment setEquipment={setEquipment} />
             <FilterByType setType={setType} />
@@ -33,4 +34,4 @@ const ParentComponent = () => {
     );
 };
 
-export default ParentComponent;
+export default Filters;

@@ -1,14 +1,23 @@
-import sprite from "../img/sprite.svg"
+import css from "./Price.module.css"
+import ButtonFavorite from "components/ButtonFavorite/ButtonFavorite";
+
 
 const Price = ({ props }) => {
-    return (<div>
-        <h3>{props.price}</h3>
-        <svg className="" width={16} height={16}>
-            <use href={`${sprite}#icon-Property-1Default`} />
-        </svg>
+    function addDotAndTwoZerosToEnd(number) {
 
-    </div>
+        let result = number.toString() + '.00';
 
-    )
-}
+        return result;
+    }
+
+    return (
+        <div>
+            <h3 className={css.price}>{addDotAndTwoZerosToEnd(props.price)}</h3>
+            {/* <ButtonFavorite props={props} /> */}
+
+
+        </div>
+    );
+};
+
 export default Price;

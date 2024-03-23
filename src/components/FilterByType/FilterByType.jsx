@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import sprite from "../img/sprite.svg"
+import sprite from "../img/sprite.svg";
+import css from "./FilterByType.module.css"
 const FilterByType = ({ setType }) => {
     const [selectedType, setSelectedType] = useState('');
 
@@ -13,42 +14,42 @@ const FilterByType = ({ setType }) => {
         <div className="">
             <h3 className="">Vechicle type</h3>
             <form>
-                <div className="input-container">
-                    <label>
+                <div className={css.input_container}>
+                    <label htmlFor="panelTruck" className={css.box}>
                         <input
                             type="radio"
                             value="panelTruck"
                             checked={selectedType === 'panelTruck'}
                             onChange={handleTypeChange}
                         />
-                        <svg className="icon" width="16" height="16">
-                            <use href={`${sprite}#icon-Button`} />
+                        <svg className={css.icon} width="16" height="16">
+                            <use href={`${sprite}#icon-Button-2`} />
                         </svg>
                         Van
                     </label>
-                </div>
-                <div className="input-container">
-                    <label>
+
+
+                    <label htmlFor='FullyIntegrated' className={css.box}>
                         <input
                             type="radio"
                             value="FullyIntegrated"
                             checked={selectedType === 'FullyIntegrated'}
                             onChange={handleTypeChange}
-                        /> <svg className="icon" width="16" height="16">
+                        /> <svg className={css.icon} width="16" height="16">
                             <use href={`${sprite}#icon-Button-1`} />
                         </svg>
                         Fully Integrated
                     </label>
-                </div>
-                <div className="input-container">
-                    <label>
+
+
+                    <label htmlFor='Alcove' className={css.box}>
                         <input
                             type="radio"
                             value="Alcove"
                             checked={selectedType === 'Alcove'}
                             onChange={handleTypeChange}
-                        /> <svg className="icon" width="16" height="16">
-                            <use href={`${sprite}#icon-Button-2`} />
+                        /> <svg className={css.icon} width="16" height="16">
+                            <use href={`${sprite}#icon-camper`} />
                         </svg>
                         Alcove
                     </label>

@@ -1,0 +1,29 @@
+.location_title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(16, 24, 40, 0.6);
+  margin-bottom: 15px;
+}
+.input_container {
+  position: relative;
+  max-width: 360px;
+  height: 56px;
+}
+input {
+  padding: 18px 218px 18px 25px;
+  background: var(--color-6);
+  border-radius: 10px;
+  border: transparent;
+  width: 100px;
+
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+.icon {
+  position: absolute;
+  top: 15px;
+  left: 8px;
+  color: transparent;
+}

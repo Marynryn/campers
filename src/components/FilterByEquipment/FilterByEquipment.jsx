@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import sprite from "../img/sprite.svg"
-
+import css from "./FiltersByEquipment.module.css"
 const FilterByEquipment = ({ setEquipment }) => {
     const [selectedEquipment, setSelectedEquipment] = useState([]);
 
@@ -22,38 +22,44 @@ const FilterByEquipment = ({ setEquipment }) => {
     return (
         <form>
             <div>
-                <h6>Filters</h6>
-                <h4>Vehicle equipment</h4>
-                <label>
-                    <input type="checkbox" id="airConditioner" onChange={() => handleCheckboxChange('airConditioner')} /><svg className="icon" width="16" height="16">
-                        <use href="../img/Vector.svg" />
-                    </svg>
-                    Air Conditioner
-                </label>
-                <label>
-                    <input type="checkbox" id="transmission" onChange={() => handleCheckboxChange('transmission')} /><svg className="icon" width="16" height="16">
-                        <use href={`${sprite}#icon-Container`} />
-                    </svg>
-                    Transmission
-                </label>
-                <label>
-                    <input type="checkbox" id="kitchen" onChange={() => handleCheckboxChange('kitchen')} /><svg className="icon" width="16" height="16">
-                        <use href={`${sprite}#icon-Container-1`} />
-                    </svg>
-                    Kitchen
-                </label>
-                <label>
-                    <input type="checkbox" id="TV" onChange={() => handleCheckboxChange('TV')} /><svg className="icon" width="16" height="16">
-                        <use href={`${sprite}#icon-Vertical-container`} />
-                    </svg>
-                    TV
-                </label>
-                <label>
-                    <input type="checkbox" id="shower" onChange={() => handleCheckboxChange('shower')} /><svg className="icon" width="16" height="16">
-                        <use href={`${sprite}#icon-Rating`} />
-                    </svg>
-                    Shower
-                </label>
+                <h6 className={css.filters_title}>Filters</h6>
+                <h4 className={css.equipment_title}>Vehicle equipment</h4>
+                <div className={css.label_box}>
+                    <label className={css.box}>
+                        <input type="checkbox" id="airConditioner" onChange={() => handleCheckboxChange('airConditioner')} />
+                        <span className={css.icon}><svg width="16" height="16">
+                            <use href="../img/Vector.svg#vg" />
+                        </svg></span>
+                        AC
+                    </label>
+                    <label className={css.box}>
+                        <input type="checkbox" id="transmission" onChange={() => handleCheckboxChange('transmission')} />
+                        <span className={css.icon}><svg width="16" height="16">
+                            <use href={`${sprite}#icon-Container`} />
+                        </svg></span>
+                        Automatic
+                    </label>
+                    <label className={css.box}>
+                        <input type="checkbox" id="kitchen" onChange={() => handleCheckboxChange('kitchen')} />
+                        <span className={css.icon}><svg width="16" height="16">
+                            <use href={`${sprite}#icon-Container-2`} />
+                        </svg></span>
+                        Kitchen
+                    </label>
+                    <label className={css.box}>
+                        <input type="checkbox" id="TV" onChange={() => handleCheckboxChange('TV')} />
+                        <span className={css.icon}><svg width="16" height="16">
+                            <use href={`${sprite}#icon-Vertical-container-2`} />
+                        </svg></span>
+                        TV
+                    </label>
+                    <label className={css.box}>
+                        <input type="checkbox" id="shower" onChange={() => handleCheckboxChange('shower')} />
+                        <span className={css.icon}><svg width="16" height="16">
+                            <use href={`${sprite}#icon-Rating`} />
+                        </svg></span>
+                        Shower/WC
+                    </label></div>
             </div>
         </form>
     );

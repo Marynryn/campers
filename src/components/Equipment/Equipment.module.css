@@ -1,0 +1,31 @@
+.equipment_box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.equipment {
+  background: #f2f4f7;
+  mix-blend-mode: multiply;
+  border-radius: 100px;
+  padding-left: 18px;
+  padding-right: 18px;
+  display: flex;
+  align-items: center;
+  height: 44px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+.equipment_name {
+  font-size: 16px;
+  line-height: 1.25;
+}
+.equipment_name:first-letter {
+  text-transform: uppercase;
+}

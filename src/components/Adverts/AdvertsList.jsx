@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAdverts } from "store/operations";
 import { selectVisibleAdverts } from "store/selectors"; // Импортируем селектор для отфильтрованных объявлений
 import AdvertItem from "components/AdvertItem/AdvertItem";
-
+import css from "./Adverts.module.css"
 const AdvertsList = () => {
     const dispatch = useDispatch();
     const visibleAdverts = useSelector(selectVisibleAdverts);
-    console.log(visibleAdverts)// Используем селектор для отфильтрованных объявлений
-    const [displayedAdverts, setDisplayedAdverts] = useState([]); // Состояние для отображаемых объявлений
+
+    const [displayedAdverts, setDisplayedAdverts] = useState([]);
     const advertsPerPage = 4;
 
     useEffect(() => {
@@ -16,12 +16,12 @@ const AdvertsList = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        // Отображаем только первую страницу отфильтрованных объявлений
+
         setDisplayedAdverts(visibleAdverts.slice(0, advertsPerPage));
     }, [visibleAdverts, advertsPerPage]);
 
     const handleLoadMore = () => {
-        // Получаем следующую страницу отфильтрованных объявлений
+
         const nextPage = Math.ceil(displayedAdverts.length / advertsPerPage) + 1;
         const startIndex = (nextPage - 1) * advertsPerPage;
         const endIndex = Math.min(startIndex + advertsPerPage, visibleAdverts.length);
@@ -33,7 +33,7 @@ const AdvertsList = () => {
     };
 
     return (
-        <div>
+        <div className={css.adverts_list}>
             <ul>
                 {displayedAdverts.map((advert) => (
                     <li key={advert._id} className="">
@@ -42,7 +42,7 @@ const AdvertsList = () => {
                 ))}
             </ul>
             {displayedAdverts.length < visibleAdverts.length && (
-                <button type="button" onClick={handleLoadMore}>
+                <button className={css.load_more} type="button" onClick={handleLoadMore}>
                     Load more
                 </button>
             )}

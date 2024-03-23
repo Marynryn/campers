@@ -1,0 +1,10 @@
+.layout {
+  height: 100vh;
+  display: block;
+  width: 1312px;
+  justify-content: center;
+  align-items: center;
+  font-size: 40;
+  color: #010101;
+  padding: 30px 64px 30px 64px;
+}

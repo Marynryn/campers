@@ -1,4 +1,4 @@
-
+import css from "./FilterLocation.module.css"
 
 import sprite from "../img/sprite.svg";
 
@@ -21,10 +21,10 @@ const FilterLocation = ({ setLocation }) => {
 
     return (
         <div className="">
-            <h3 className="">Location</h3>
+            <h3 className={css.location_title}>Location</h3>
             <form>
-                <div className="input-container">
-                    <svg className="icon" width="16" height="16">
+                <div className={css.input_container}>
+                    <svg className={css.icon} width="16" height="20">
                         <use href={`${sprite}#icon-map-pin`} />
                     </svg>
                     <input

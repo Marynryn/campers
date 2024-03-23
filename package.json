@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://Marynryn.github.io/campers/",
   "dependencies": {
+    "@mui/material": "^5.15.14",
     "@reduxjs/toolkit": "^2.2.1",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
