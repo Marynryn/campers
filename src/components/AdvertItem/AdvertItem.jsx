@@ -5,7 +5,7 @@ import Price from "components/Price/Price";
 import css from "./AdvertItem.module.css"
 
 import Modal from "components/Modal/Modal";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const AdvertItem = ({ props }) => {
 
