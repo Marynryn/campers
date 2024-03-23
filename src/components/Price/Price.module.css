@@ -1,3 +1,6 @@
 .price {
   margin-top: 0;
 }
+.price_box {
+  display: flex;
+}

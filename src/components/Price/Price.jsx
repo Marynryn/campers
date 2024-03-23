@@ -11,9 +11,9 @@ const Price = ({ props }) => {
     }
 
     return (
-        <div>
+        <div className={css.price_box}>
             <h3 className={css.price}>{addDotAndTwoZerosToEnd(props.price)}</h3>
-            {/* <ButtonFavorite props={props} /> */}
+            <ButtonFavorite props={props} />
 
 
         </div>

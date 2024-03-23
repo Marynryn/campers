@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import sprite from '../img/sprite.svg';
-
+import css from "./ButtonFavorite.module.css"
 const ButtonFavorite = ({ props }) => {
     const [isFavorite, setIsFavorite] = useState(false);
 
@@ -21,7 +21,7 @@ const ButtonFavorite = ({ props }) => {
     };
 
     return (
-        <button onClick={toggleFavorite}>
+        <button className={css.heart} onClick={toggleFavorite}>
             <svg className="" width={16} height={16}>
                 <use href={`${sprite}#${isFavorite ? 'icon-Property-1Filled' : 'icon-Property-1Default'}`} />
             </svg>
