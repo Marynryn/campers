@@ -13,7 +13,7 @@ import Reviews from 'components/Reviews/Reviews';
 
 const Modal = ({ props, onClose }) => {
     const [activeTab, setActiveTab] = useState(null);
-
+    const [modalHeight, setModalHeight] = useState('640px');
     const handleBackdropClick = event => {
         if (event.currentTarget === event.target) {
             onClose();
@@ -33,11 +33,12 @@ const Modal = ({ props, onClose }) => {
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
+        setModalHeight(`1208px`);
     };
     return (
         <div className={css.modal_backdrop} onClick={handleBackdropClick}>
             <button type='button' onClick={onClose}>close</button>
-            <div className={css.modal_content}>
+            <div className={css.modal_content} style={{ height: modalHeight }}>
                 <h3>{props.name}</h3>
 
                 <Rating props={props} />
