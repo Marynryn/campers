@@ -1,7 +1,7 @@
 
 import Price from 'components/Price/Price';
 import css from './Modal.module.css';
-
+import Image from 'react-image';
 import { useEffect, useState } from 'react';
 import Rating from 'components/Rating/Rating';
 import Location from 'components/Location/Location';
@@ -11,8 +11,8 @@ import Reviews from 'components/Reviews/Reviews';
 
 
 
-const Modal = ({ onClose, props }) => {
-    const [activeTab, setActiveTab] = useState('tab1');
+const Modal = ({ props, onClose }) => {
+    const [activeTab, setActiveTab] = useState(null);
 
     const handleBackdropClick = event => {
         if (event.currentTarget === event.target) {
@@ -36,35 +36,41 @@ const Modal = ({ onClose, props }) => {
     };
     return (
         <div className={css.modal_backdrop} onClick={handleBackdropClick}>
+            <button type='button' onClick={onClose}>close</button>
             <div className={css.modal_content}>
                 <h3>{props.name}</h3>
-                <Price props={props} />
+
                 <Rating props={props} />
                 <Location props={props} />
-                <ul>{props.gallery.map((item, index) => { return <li key={index}><img alt="car" src={item} width={100} height={100} /></li> })}
+                <Price props={props} />
+                <div className={css.scroll_container}>
+                    <ul className={css.img_list}>{props.gallery.map((item, index) => { return <li className={css.img_box} key={index}><img alt="car" src={item} width="100%" height="100%" /></li> })}
 
-                </ul>
-                <p>{props.description}</p>
-                <div className="tabs">
-                    <button className={activeTab === 'tab1' ? 'active' : ''} onClick={() => handleTabClick('tab1')}>Features</button>
-                    <button className={activeTab === 'tab2' ? 'active' : ''} onClick={() => handleTabClick('tab2')}>Reviews</button>
+                    </ul>
+                    <p>{props.description}</p>
                 </div>
-                <div className="tab-content">
+                <ul className={css.tabs}>
+                    <li className={css.tab}>
+                        <button style={{ backgroundColor: 'transparent', color: 'black' }} className={activeTab === 'tab1' ? css.active : ''} onClick={() => handleTabClick('tab1')}>Features</button></li>
+                    <li className={css.tab}>
+                        <button style={{ backgroundColor: 'transparent', color: 'black' }} className={activeTab === 'tab2' ? css.active : ''} onClick={() => handleTabClick('tab2')}>Reviews</button></li>
+                </ul>
+                <div className={css.tab_content}>
                     {activeTab === 'tab1' && (
 
                         <div>
-                            <h2>Features</h2>
+
                             <Features props={props} />
                         </div>
                     )}
                     {activeTab === 'tab2' && (
 
                         <div>
-                            <h2>Reviews</h2>
+
                             <Reviews props={props} />
                         </div>
                     )}
-                    <button type='button' onClick={onClose}>close</button>
+
                 </div>
             </div>
             /</div>

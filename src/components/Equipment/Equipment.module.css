@@ -1,14 +1,14 @@
 .equipment_box {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 5px;
 }
 .equipment {
   background: #f2f4f7;
   mix-blend-mode: multiply;
   border-radius: 100px;
-  padding-left: 18px;
-  padding-right: 18px;
+  padding-left: 12px;
+  padding-right: 12px;
   display: flex;
   align-items: center;
   height: 44px;

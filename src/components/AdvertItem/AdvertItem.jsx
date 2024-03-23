@@ -36,7 +36,7 @@ const AdvertItem = ({ props }) => {
                     <Modal onClose={handleCloseModal} props={props} />
 
                 )}
-                <button className="" type="button" onClick={handleOpenModal} >Show more</button>
+                <button className={css.more} type="button" onClick={handleOpenModal} >Show more</button>
             </div>
         </div>
     )
