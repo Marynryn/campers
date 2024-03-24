@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAdverts } from "store/operations";
-import { selectVisibleAdverts } from "store/selectors"; // Импортируем селектор для отфильтрованных объявлений
+import { selectVisibleAdverts } from "store/selectors";
 import AdvertItem from "components/AdvertItem/AdvertItem";
 import css from "./AdvertsList.module.css"
 const AdvertsList = () => {

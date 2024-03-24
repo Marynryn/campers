@@ -1,9 +1,9 @@
 .img_box {
-  width: 1312px;
-  height: 600px;
+  width: 1250px;
+  height: 300px;
 }
 .slider_photo {
   border-radius: 20px;
-  /* width: 1200px; */
+  width: 1250px;
   text-align: center;
 }

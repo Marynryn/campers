@@ -44,7 +44,7 @@ const BookingForm = () => {
             bookingDate: ''
         });
 
-        window.location.reload(); // Обновление страницы после успешной отправки формы
+        window.location.reload();
     };
 
     return (
@@ -90,7 +90,7 @@ const BookingForm = () => {
                     onChange={handleChange}
                 />
             </label>
-            <button type="submit">Send</button>
+            <button className={css.send} type="submit">Send</button>
         </form>
     );
 };

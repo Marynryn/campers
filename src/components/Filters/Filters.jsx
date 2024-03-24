@@ -31,7 +31,7 @@ const Filters = () => {
             <FilterLocation setLocation={setLocation} value={location} />
             <FilterByEquipment setEquipment={setEquipment} value={equipment} />
             <FilterByType setType={setType} value={type} />
-            <button type='button' onClick={handleApplyFilter}>Search</button>
+            <button type='button' className={css.search_button} onClick={handleApplyFilter}>Search</button>
         </div>
     );
 };

@@ -14,7 +14,6 @@ const Favorites = () => {
 
         window.addEventListener("storage", handleStorageChange);
 
-        // Загрузка избранных объявлений при первой загрузке компонента
         handleStorageChange();
 
         return () => {

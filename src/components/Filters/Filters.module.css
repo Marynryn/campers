@@ -2,3 +2,6 @@
   width: 360px;
   height: 745px;
 }
+.search_button:hover {
+  background-color: #d84343;
+}

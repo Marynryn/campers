@@ -15,13 +15,3 @@ export const fetchAdverts = createAsyncThunk(
     }
   }
 );
-// export const getOneContact = createAsyncThunk(
-//   'contacts/getOneContact',
-//   async id => {
-//     try {
-//       const { contact } = await axios.get(`/advert/${id}`);
-//       // console.log(id);
-//       return contact;
-//     } catch (error) {}
-//   }
-// );

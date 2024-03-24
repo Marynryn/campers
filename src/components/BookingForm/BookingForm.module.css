@@ -63,3 +63,6 @@ textarea {
 .calendar_div input {
   padding-left: 18px;
 }
+.send:hover {
+  background-color: #d84343;
+}
