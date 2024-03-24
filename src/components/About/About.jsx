@@ -5,7 +5,8 @@ import Type from "components/Type/Type";
 
 const About = ({ props }) => {
 
-    const advert = props[1];
+    const advert = props[0] ?? {};
+
     return (
         <div className={css.central_box}>
             <div className={css.about_title}>
