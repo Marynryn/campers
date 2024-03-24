@@ -12,9 +12,6 @@ body {
   width: 100%;
   max-width: 1440px;
 }
-body.modal-open {
-  overflow: hidden;
-}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

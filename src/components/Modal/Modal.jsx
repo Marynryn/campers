@@ -23,11 +23,11 @@ const Modal = ({ props, onClose }) => {
             }
         };
         document.addEventListener('keydown', handleKeyDown);
-        document.body.classList.add('modal_open');
+
 
         return () => {
             document.removeEventListener('keydown', handleKeyDown);
-            document.body.classList.remove('modal_open');
+
         };
     }, [onClose]);
 
@@ -62,6 +62,7 @@ const Modal = ({ props, onClose }) => {
                 <ul className={css.tabs}>
                     <li className={css.tab}>
                         <button className={activeTab === 'tab1' ? css.active : ''} onClick={() => handleTabClick('tab1')}>Features</button>
+
                     </li>
                     <li className={css.tab}>
                         <button className={activeTab === 'tab2' ? css.active : ''} onClick={() => handleTabClick('tab2')}>Reviews</button>

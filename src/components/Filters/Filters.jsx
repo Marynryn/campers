@@ -18,7 +18,7 @@ const Filters = () => {
             equipment: equipment,
             type: type
         };
-
+        console.log(filter)
         dispatch(setFilter(filter));
 
         setLocation('');

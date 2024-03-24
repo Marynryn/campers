@@ -29,7 +29,11 @@ export const selectVisibleAdverts = createSelector(
       const hasEquipment =
         equipment.length === 0 ||
         equipment.every(equipmentName => {
-          return advert.details[equipmentName] > 0;
+          return (
+            advert.hasOwnProperty(equipmentName) ||
+            (advert.details.hasOwnProperty(equipmentName) &&
+              advert.details[equipmentName] > 0)
+          );
         });
 
       const hasType =
