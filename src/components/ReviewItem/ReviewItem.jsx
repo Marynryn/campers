@@ -1,17 +1,20 @@
 import css from "./ReviewsItem.module.css"
 const ReviewItem = ({ reviewerName, reviewerRating, comment }) => {
     const stars = Array.from({ length: reviewerRating }, (_, index) => (
-        <span key={index}>&#9733;</span>
+        <span className={css.star} key={index}>&#9733;</span>
     ));
 
     return (
-        <div className="review">
-            <div className={css.avatar}>{reviewerName.charAt(0)}</div>
-            <div className="details">
-                <div className="name">{reviewerName}</div>
-                <div className="rating">{stars}</div>
-                <div className="comment">{comment}</div>
+        <div className={css.review}>
+            <div className={css.rating_box}>
+                <div className={css.avatar}>{reviewerName.charAt(0)}</div>
+                <div className={css.details}>
+                    <div className={css.name}>{reviewerName}</div>
+                    <div className={css.rating}>{stars}</div>
+                </div>
             </div>
+            <div className={css.comment}>{comment}</div>
+
         </div>
     );
 };

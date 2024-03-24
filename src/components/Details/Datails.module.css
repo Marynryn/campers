@@ -1,0 +1,41 @@
+.details_title {
+  position: relative;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  margin-bottom: 35px;
+}
+.details_title::after {
+  position: absolute;
+  content: '';
+  top: 50px;
+  background-image: url(../img/sprite.svg#line);
+  stroke-width: 1px;
+  width: 430px;
+  height: 2px;
+  display: flex;
+  background-color: rgba(16, 24, 40, 0.1);
+}
+td {
+  width: 100%;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.33333;
+  text-align: center;
+  color: #101828;
+  height: 40px;
+}
+tbody {
+  width: 430px;
+}
+table td:first-child {
+  text-align: left;
+}
+
+table td:last-child {
+  text-align: right;
+}
+table td:last-child:first-letter {
+  text-transform: uppercase;
+}

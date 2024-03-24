@@ -1,7 +1,7 @@
 
 import Price from 'components/Price/Price';
 import css from './Modal.module.css';
-import Image from 'react-image';
+import sprite from "../img/sprite.svg";
 import { useEffect, useState } from 'react';
 import Rating from 'components/Rating/Rating';
 import Location from 'components/Location/Location';
@@ -33,16 +33,21 @@ const Modal = ({ props, onClose }) => {
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
-        setModalHeight(`1208px`);
+        setModalHeight(`1160px`);
     };
     return (
         <div className={css.modal_backdrop} onClick={handleBackdropClick}>
-            <button type='button' onClick={onClose}>close</button>
-            <div className={css.modal_content} style={{ height: modalHeight }}>
-                <h3>{props.name}</h3>
 
-                <Rating props={props} />
-                <Location props={props} />
+            <div className={css.modal_content} style={{ height: modalHeight }}>
+                <h3 className={css.modal_header} style={{ width: "600px" }}>{props.name}</h3>
+                <button className={css.close_button} type='button' onClick={onClose}>
+                    <svg className={css.close} >
+                        <use href={`${sprite}#icon-x`} width='32px' height={32} />
+                    </svg></button>
+                <div className={css.rating_location}>
+                    <Rating props={props} />
+                    <Location props={props} />
+                </div>
                 <Price props={props} />
                 <div className={css.scroll_container}>
                     <ul className={css.img_list}>{props.gallery.map((item, index) => { return <li className={css.img_box} key={index}><img alt="car" src={item} width="100%" height="100%" /></li> })}

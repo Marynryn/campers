@@ -41,3 +41,18 @@ input[type='radio'] {
 .box input[type='radio']:checked {
   border-color: brown;
 }
+.type_title::after {
+  position: absolute;
+  content: '';
+  top: 50px;
+  background-image: url(../img/sprite.svg#line);
+  stroke-width: 1px;
+  width: 340px;
+  height: 2px;
+  display: flex;
+  background-color: rgba(16, 24, 40, 0.1);
+}
+.type_title {
+  position: relative;
+  margin-bottom: 50px;
+}

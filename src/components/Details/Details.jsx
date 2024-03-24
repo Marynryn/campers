@@ -1,8 +1,11 @@
+import css from "./Datails.module.css"
+
 const Details = ({ props }) => {
     console.log(props)
-    // const { form, length, width, height, tank, consumption } = props;
+
     return (
         <div>
+            <h4 className={css.details_title}>Vehicle equipment</h4>
             <table>
 
                 <tbody>

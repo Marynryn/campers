@@ -20,7 +20,7 @@ const FilterLocation = ({ setLocation }) => {
     }
 
     return (
-        <div className="">
+        <div className={css.location}>
             <h3 className={css.location_title}>Location</h3>
             <form>
                 <div className={css.input_container}>

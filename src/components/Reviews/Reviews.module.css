@@ -1,0 +1,11 @@
+.reviews_box {
+  display: flex;
+  margin-top: 40px;
+}
+.reviews_list {
+  width: 430px;
+  padding-right: 24px;
+}
+.review_item {
+  width: 430px;
+}

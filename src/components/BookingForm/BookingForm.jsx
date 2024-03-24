@@ -1,67 +1,57 @@
 import React, { useState } from 'react';
-import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
-import sprite from "../img/sprite.svg"
+import sprite from "../img/sprite.svg";
+import css from "./BookingForm.module.css";
+import { Schema } from 'schema/schema';
+import DatePicker from 'react-datepicker';
+import { registerLocale } from 'react-datepicker';
+import enGB from 'date-fns/locale/en-GB';
+import 'react-datepicker/dist/react-datepicker.css';
+
+registerLocale('en-GB', enGB);
+
 const BookingForm = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        comment: ''
+        comment: '',
+        bookingDate: ''
     });
-    const [selectedDate, setSelectedDate] = useState(null);
-    const [errors, setErrors] = useState({});
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
-        setErrors({ ...errors, [name]: '' });
     };
 
     const handleDateChange = (date) => {
-        setSelectedDate(date);
-        setErrors({ ...errors, bookingDate: '' });
+        setFormData({ ...formData, bookingDate: date });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const { name, email } = formData;
-        const errors = {};
-
-        if (!name) {
-            errors.name = 'Name is required';
-        }
-
-        if (!email) {
-            errors.email = 'Email is required';
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            errors.email = 'Invalid email format';
-        }
-
-        if (!selectedDate) {
-            errors.bookingDate = 'Booking date is required';
-        }
-
-        if (Object.keys(errors).length > 0) {
-            setErrors(errors);
+        if (!formData.name || !formData.email || !formData.bookingDate) {
+            alert('Please fill in all required fields.');
             return;
         }
 
+        console.log(formData);
 
         setFormData({
             name: '',
             email: '',
-            comment: ''
+            comment: '',
+            bookingDate: ''
         });
-        setSelectedDate(null);
-        setErrors({});
+
+        window.location.reload(); // Обновление страницы после успешной отправки формы
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h4>Book your campervan now</h4>
-            <h6>Stay connected! We are always ready to help you.</h6>
-            <div>
+        <form className={css.form} onSubmit={handleSubmit} schema={Schema}>
+            <h4 className={css.form_title}>Book your campervan now</h4>
+            <h6 className={css.form_description}>Stay connected! We are always ready to help you.</h6>
+            <label className={css.label_form}>
                 <input
                     type="text"
                     name="name"
@@ -69,9 +59,8 @@ const BookingForm = () => {
                     value={formData.name}
                     onChange={handleChange}
                 />
-
-            </div>
-            <div>
+            </label>
+            <label className={css.label_form}>
                 <input
                     type="email"
                     name="email"
@@ -79,29 +68,28 @@ const BookingForm = () => {
                     value={formData.email}
                     onChange={handleChange}
                 />
-
-            </div>
-            <div>
-                <Datetime
-                    id="bookingDate"
-                    name="bookingDate"
-                    value={selectedDate}
+            </label>
+            <label className={css.calendar_div}>
+                <DatePicker
+                    locale="en-GB"
+                    selected={formData.bookingDate}
                     onChange={handleDateChange}
-                    inputProps={{ required: true }}
-                    placeholder="Booking date"
+                    customInput={<input className={css.calendar} />}
+                    placeholderText="Booking date"
+                    className={css.calendar_color}
                 />
-                <svg className="" width={16} height={16}>
-                    <use href={`${sprite}#icon-Container`} />
+                <svg className={css.icon_data} width={16} height={16}>
+                    <use href={`${sprite}#icon-data`} />
                 </svg>
-            </div>
-            <div>
+            </label>
+            <label className={css.comment}>
                 <textarea
                     name="comment"
                     placeholder='Comment'
                     value={formData.comment}
                     onChange={handleChange}
                 />
-            </div>
+            </label>
             <button type="submit">Send</button>
         </form>
     );

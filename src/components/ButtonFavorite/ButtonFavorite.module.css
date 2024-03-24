@@ -5,6 +5,10 @@
   margin: 0;
   background-color: #fff;
 }
-.heart:hover {
+.favorite_on {
   fill: var(--color-3);
+}
+.favorite_off {
+  stroke: black;
+  fill: #fff;
 }

@@ -22,8 +22,8 @@ const ButtonFavorite = ({ props }) => {
 
     return (
         <button className={css.heart} onClick={toggleFavorite}>
-            <svg className="" width={16} height={16}>
-                <use href={`${sprite}#${isFavorite ? 'icon-Property-1Filled' : 'icon-Property-1Default'}`} />
+            <svg className={isFavorite ? css.favorite_on : css.favorite_off} width={16} height={16}>
+                <use href={`${sprite}#icon-heart`} />
             </svg>
         </button>
     );

@@ -50,8 +50,8 @@ input[type='checkbox'] {
   display: inline-block;
 
   stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
+  stroke: black;
+  fill: #fff;
 }
 .label_box {
   margin-top: 50px;

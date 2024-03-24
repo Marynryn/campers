@@ -51,24 +51,38 @@ import css from "./Equipment.module.css";
 const Equipment = ({ props }) => {
     return (
         <ul className={css.equipment_box}>
-            <div className={css.equipment}>
-                <svg className={css.icon} width={16} height={16}>
+            <li className={css.equipment}>
+
+                <svg className={css.icon} style={{ fill: "black" }} width="16" height="16">
+                    <use href={`${sprite}#icon-engine`} />
+                </svg> <p className={css.equipment_name}>{props.engine}</p>
+
+            </li>
+            <li className={css.equipment}>
+
+                <svg className={css.icon} width="16" height="16">
+                    <use href={`${sprite}#icon-transmission`} />
+                </svg>
+                <p className={css.equipment_name}>{props.transmission}</p>
+            </li>
+            <li className={css.equipment}>
+                <svg className={css.icon} style={{ fill: "black" }} width={16} height={16}>
                     <use href={`${sprite}#icon-Users`} />
                 </svg>
                 <p className={css.equipment_name}>{props.adults} adults</p>
-            </div>
+            </li>
             {props.details && Object.entries(props.details).map(([key, value]) => (
-                (value > 0) &&
-                <div key={key} className={css.equipment}>
-                    <svg className={css.icon} width={16} height={16}>
+                (value > 0 && key !== "bathroom") &&
+                <li key={key} className={css.equipment} >
+                    <svg className={css.icon} width={20} height={20}>
                         <use href={`${sprite}#icon-${key}`} />
                     </svg>
                     <p className={css.equipment_name}>
                         {(value > 1) ? `${value} ${key}` : (key === "airConditioner" ? "AC" : key)}
                     </p>
-                </div>
+                </li>
             ))}
-        </ul>
+        </ul >
     )
 }
 

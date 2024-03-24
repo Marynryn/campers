@@ -25,5 +25,10 @@ input {
   position: absolute;
   top: 15px;
   left: 8px;
-  color: transparent;
+
+  stroke: black;
+  fill: #fff;
+}
+.location {
+  margin-bottom: 20px;
 }

@@ -1,0 +1,9 @@
+.img_box {
+  width: 1312px;
+  height: 600px;
+}
+.slider_photo {
+  border-radius: 20px;
+  /* width: 1200px; */
+  text-align: center;
+}

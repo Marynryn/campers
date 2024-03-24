@@ -43,5 +43,6 @@ img {
   object-fit: cover;
 }
 .more {
-  margin-top: 15px;
+}
+.about:last-child {
 }

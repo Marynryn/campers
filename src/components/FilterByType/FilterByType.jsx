@@ -12,7 +12,7 @@ const FilterByType = ({ setType }) => {
 
     return (
         <div className="">
-            <h3 className="">Vechicle type</h3>
+            <h3 className={css.type_title}>Vechicle type</h3>
             <form>
                 <div className={css.input_container}>
                     <label htmlFor="panelTruck" className={css.box}>

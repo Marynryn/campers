@@ -1,66 +1,34 @@
 import Details from "components/Details/Details";
 import sprite from "../img/sprite.svg"
 import BookingForm from "components/BookingForm/BookingForm";
-
+import css from "./Features.module.css"
 
 const Features = ({ props }) => {
     return (
-        <div>
-            <div>
-                <svg className="" width={16} height={16}>
-                    <use href={`${sprite}#icon-Users`} />
-                </svg>
-                <p>{props.adults} adults</p>
+        <div className={css.features_box}>
+            <div className={css.features_container}>
+                <ul className={css.equipment_box}>
+                    <div className={css.equipment}>
+                        <svg className={css.icon} width={16} height={16}>
+                            <use href={`${sprite}#icon-Users`} />
+                        </svg>
+                        <p className={css.equipment_name}>{props.adults} adults</p>
+                    </div>
+                    {props.details && Object.entries(props.details).map(([key, value]) => (
+                        (value > 0) &&
+                        <div key={key} className={css.equipment}>
+                            <svg className={css.icon} width={16} height={16}>
+                                <use href={`${sprite}#icon-${key}`} />
+                            </svg>
+                            <p className={css.equipment_name}>
+                                {(value > 1) ? `${value} ${key}` : (key === "airConditioner" ? "AC" : key)}
+                            </p>
+                        </div>
+                    ))}
+                </ul>
+
+                <Details props={props} />
             </div>
-            <div>
-                <svg className="" width={16} height={16}>
-                    <use href={`${sprite}#icon-Container`} />
-                </svg>
-                <p>{props.transmission}</p>
-            </div>
-            <div>
-                <svg className="" width={16} height={16}>
-                    <use href={`${sprite}#icon-Vertical-container`} />
-                </svg>
-                <p>{props.engine}</p>
-            </div>
-            <div>
-                <svg className="" width={16} height={16}>
-                    <use href={`${sprite}#icon-Horizontal-container`} />
-                </svg>
-                <p>Kitchen</p>
-            </div>
-            <div>
-                <svg className="" width={16} height={16}>
-                    <use href={`${sprite}#icon-Container-1`} />
-                </svg>
-                <p>{props.details.beds} beds</p>
-            </div>
-            <div>
-                <svg className="" width={16} height={16}>
-                    <use href="../img/Vector.svg" />
-                </svg>
-                <p>{props.details.airConditioner} air conditioner</p>
-            </div>
-            <div>
-                <svg className="" width={16} height={16}>
-                    <use href="../img/Vector.svg" />
-                </svg>
-                <p>CD</p>
-            </div>
-            <div>
-                <svg className="" width={16} height={16}>
-                    <use href="../img/Vector.svg" />
-                </svg>
-                <p>Radio</p>
-            </div>
-            <div>
-                <svg className="" width={16} height={16}>
-                    <use href="../img/Vector.svg" />
-                </svg>
-                <p>hob</p>
-            </div>
-            <Details props={props} />
             <BookingForm />
         </div>
     )
