@@ -1,5 +1,5 @@
 import Details from "components/Details/Details";
-import sprite from "../img/sprite.svg"
+
 import BookingForm from "components/BookingForm/BookingForm";
 import css from "./Features.module.css"
 import Equipment from "components/Equipment/Equipment";
