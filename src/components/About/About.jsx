@@ -1,6 +1,7 @@
 import Equipment from "components/Equipment/Equipment"
 import css from "./About.module.css"
 import { Link } from "react-router-dom";
+import Type from "components/Type/Type";
 
 const About = ({ props }) => {
 
@@ -16,7 +17,7 @@ const About = ({ props }) => {
             </div>
             <div className={css.about_equipment}>
                 <h3 className={css.name}>Choose a van that suits <span className={css.you}>you</span></h3>
-                <Equipment props={advert} />
+                <Type props={advert} />
             </div>
         </div>
     )
