@@ -1,4 +1,4 @@
-import Equipment from "components/Equipment/Equipment"
+
 import css from "./About.module.css"
 import { Link } from "react-router-dom";
 import Type from "components/Type/Type";
