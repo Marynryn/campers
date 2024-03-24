@@ -17,6 +17,7 @@ const SliderPhoto = ({ props }) => {
 
     return (
         <Slider {...settings}>
+
             {props.map((advert, index) => (advert.gallery.length > 0 &&
                 (<li className={css.img_box} key={index}>
                     <img className={css.slider_photo} src={advert.gallery[0]} alt={`Slide ${index + 1}`} />

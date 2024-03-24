@@ -23,7 +23,8 @@
   margin-bottom: 10px;
   border-radius: 10px;
   text-align: left;
-  padding: 18px 280px 18px 18px;
+  width: 200px;
+  padding: 18px 180px 18px 18px;
 }
 textarea {
   background: #f7f7f7;

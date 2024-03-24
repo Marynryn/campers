@@ -33,7 +33,7 @@ const Modal = ({ props, onClose }) => {
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
-        setModalHeight(`1160px`);
+        setModalHeight(`auto`);
     };
     return (
         <div className={css.modal_backdrop} onClick={handleBackdropClick}>

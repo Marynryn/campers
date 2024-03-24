@@ -68,3 +68,6 @@ input {
   text-align: center;
   color: #101828;
 }
+.selected {
+  border-color: var(--color-3);
+}
