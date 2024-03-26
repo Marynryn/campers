@@ -41,7 +41,7 @@ const Modal = ({ props }) => {
             document.removeEventListener('keydown', handleKeyDown);
 
         };
-    }, []);
+    }, [handleCloseModal]);
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
