@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Price from 'components/Price/Price';
 import css from './Modal.module.css';
 import sprite from "../img/sprite.svg";
@@ -10,17 +10,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from 'store/modalreducer';
 import ReactDOM from 'react-dom';
 
-
 const Modal = ({ props }) => {
     const [activeTab, setActiveTab] = useState(null);
     const isOpen = useSelector(state => state.modal.isOpen);
     const dispatch = useDispatch();
 
-
-
-    const handleCloseModal = () => {
-        dispatch(closeModal);
-    };
+    const handleCloseModal = useCallback(() => {
+        dispatch(closeModal());
+    }, [dispatch]);
 
     const handleBackdropClick = event => {
         if (event.currentTarget === event.target) {
@@ -36,10 +33,8 @@ const Modal = ({ props }) => {
         };
         document.addEventListener('keydown', handleKeyDown);
 
-
         return () => {
             document.removeEventListener('keydown', handleKeyDown);
-
         };
     }, [handleCloseModal]);
 
