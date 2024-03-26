@@ -22,6 +22,7 @@ const FilterByType = ({ setType, value }) => {
                 <div className={css.input_container}>
                     <label htmlFor="panelTruck" className={`${css.box} ${selectedType === 'panelTruck' ? css.selected : ''}`}>
                         <input
+                            id="panelTruck"
                             type="radio"
                             value="panelTruck"
                             checked={selectedType === 'panelTruck'}
@@ -35,6 +36,7 @@ const FilterByType = ({ setType, value }) => {
 
                     <label htmlFor='FullyIntegrated' className={`${css.box} ${selectedType === 'FullyIntegrated' ? css.selected : ''}`}>
                         <input
+                            id="FullyIntegrated"
                             type="radio"
                             value="FullyIntegrated"
                             checked={selectedType === 'FullyIntegrated'}
@@ -48,6 +50,7 @@ const FilterByType = ({ setType, value }) => {
 
                     <label htmlFor='Alcove' className={`${css.box} ${selectedType === 'Alcove' ? css.selected : ''}`}>
                         <input
+                            id="Alcove"
                             type="radio"
                             value="Alcove"
                             checked={selectedType === 'Alcove'}

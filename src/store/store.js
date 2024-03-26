@@ -11,10 +11,12 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import modalReducer from './modalreducer';
 
 export const store = configureStore({
   reducer: {
     adverts: advertsReducer,
+    modal: modalReducer,
   },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware({

@@ -6,8 +6,8 @@
   align-content: flex-start;
 }
 .equipment {
-  background: #f2f4f7;
-  mix-blend-mode: multiply;
+  background-color: #f2f4f7;
+
   border-radius: 100px;
   padding-left: 12px;
   padding-right: 12px;

@@ -84,7 +84,9 @@ const BookingForm = () => {
             </label>
             <label className={css.comment}>
                 <textarea
-                    name="comment"
+                    rows="6"
+                    cols="50"
+                    name="text"
                     placeholder='Comment'
                     value={formData.comment}
                     onChange={handleChange}

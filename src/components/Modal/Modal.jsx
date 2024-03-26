@@ -6,20 +6,32 @@ import Rating from 'components/Rating/Rating';
 import Location from 'components/Location/Location';
 import Features from 'components/Features/Features';
 import Reviews from 'components/Reviews/Reviews';
+import { useDispatch, useSelector } from 'react-redux';
+import { closeModal } from 'store/modalreducer';
+import ReactDOM from 'react-dom';
 
-const Modal = ({ props, onClose }) => {
+
+const Modal = ({ props }) => {
     const [activeTab, setActiveTab] = useState(null);
+    const isOpen = useSelector(state => state.modal.isOpen);
+    const dispatch = useDispatch();
+
+
+
+    const handleCloseModal = () => {
+        dispatch(closeModal);
+    };
 
     const handleBackdropClick = event => {
         if (event.currentTarget === event.target) {
-            onClose();
+            handleCloseModal();
         }
     };
 
     useEffect(() => {
         const handleKeyDown = e => {
             if (e.code === 'Escape') {
-                onClose();
+                handleCloseModal();
             }
         };
         document.addEventListener('keydown', handleKeyDown);
@@ -29,17 +41,18 @@ const Modal = ({ props, onClose }) => {
             document.removeEventListener('keydown', handleKeyDown);
 
         };
-    }, [onClose]);
+    }, []);
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
     };
 
-    return (
+
+    return isOpen ? ReactDOM.createPortal(
         <div className={css.modal_backdrop} onClick={handleBackdropClick}>
             <div className={css.modal_content}>
                 <h3 className={css.modal_header}>{props.name}</h3>
-                <button className={css.close_button} type='button' onClick={onClose}>
+                <button className={css.close_button} type='button' onClick={handleCloseModal}>
                     <svg className={css.close} >
                         <use href={`${sprite}#icon-x`} width='32px' height={32} />
                     </svg>
@@ -73,8 +86,10 @@ const Modal = ({ props, onClose }) => {
                     {activeTab === 'tab2' && <Reviews props={props} />}
                 </div>
             </div>
-        </div>
-    );
+        </div>, document.getElementById('modal-root')
+    ) : null;
+
+
 };
 
 export default Modal;
