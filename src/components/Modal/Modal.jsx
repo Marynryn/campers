@@ -65,7 +65,7 @@ const Modal = ({ props }) => {
                             </li>
                         ))}
                     </ul>
-                    <p>{props.description}</p>
+                    <p className={css.about}>{props.description}</p>
                 </div>
                 <ul className={css.tabs}>
                     <li className={css.tab}>

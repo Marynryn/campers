@@ -86,7 +86,7 @@ const BookingForm = () => {
                 <textarea
                     rows="6"
                     cols="50"
-                    name="text"
+                    name="comment"
                     placeholder='Comment'
                     value={formData.comment}
                     onChange={handleChange}
