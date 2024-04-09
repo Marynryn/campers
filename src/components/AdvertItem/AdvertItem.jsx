@@ -8,7 +8,7 @@ import css from "./AdvertItem.module.css"
 
 import { openModal } from "store/modalreducer";
 import { useDispatch } from "react-redux";
-import Modal from "components/Modal/Modal";
+
 
 
 const AdvertItem = ({ props }) => {
