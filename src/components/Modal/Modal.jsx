@@ -61,7 +61,7 @@ const Modal = ({ props }) => {
                     <ul className={css.img_list}>
                         {props.gallery.map((item, index) => (
                             <li className={css.img_box} key={index}>
-                                <img alt="car" src={item} width="100%" height="100%" />
+                                <img alt="car" src={item} width={290} height={310} />
                             </li>
                         ))}
                     </ul>
