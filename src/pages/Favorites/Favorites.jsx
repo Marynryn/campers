@@ -1,25 +1,23 @@
 import AdvertItem from "components/AdvertItem/AdvertItem";
 import { useEffect, useState } from "react";
 
-
 const Favorites = () => {
-
     const [favoriteAdverts, setFavoriteAdverts] = useState([]);
 
     useEffect(() => {
         const handleStorageChange = () => {
             const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
-            setFavoriteAdverts(storedFavorites);
+
+            setFavoriteAdverts(storedFavorites.reverse());
         };
 
         window.addEventListener("storage", handleStorageChange);
-
         handleStorageChange();
 
         return () => {
             window.removeEventListener("storage", handleStorageChange);
         };
-    }, [favoriteAdverts]);
+    }, []);
 
     return (
         <div>
@@ -34,4 +32,5 @@ const Favorites = () => {
         </div>
     );
 }
-export default Favorites
+
+export default Favorites;

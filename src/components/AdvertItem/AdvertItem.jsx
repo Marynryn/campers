@@ -15,7 +15,7 @@ const AdvertItem = ({ props }) => {
     const dispatch = useDispatch();
 
     const handleOpenModal = () => {
-        dispatch(openModal());
+        dispatch(openModal(props));
     };
 
 
@@ -37,7 +37,7 @@ const AdvertItem = ({ props }) => {
 
                 <button className={css.more} type="button" onClick={handleOpenModal} >Show more</button>
             </div>
-            <Modal props={props} />
+            
         </div>
     )
 }

@@ -36,6 +36,6 @@
   display: flex;
 }
 .features_container {
-  width: 430px;
+  min-width: 430px;
   margin-right: 24px;
 }
