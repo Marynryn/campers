@@ -59,39 +59,40 @@ const Modal = () => {
     return isOpen ? ReactDOM.createPortal(
         <div className={css.modal_backdrop} onClick={handleBackdropClick}>
             <div className={css.modal_content}>
-                <h3 className={css.modal_header}>{modalProps.name}</h3>
-                <button className={css.close_button} type='button' onClick={handleCloseModal}>
-                    <svg className={css.close} >
-                        <use href={`${sprite}#icon-x`} width='32px' height={32} />
-                    </svg>
-                </button>
-                <div className={css.rating_location}>
-                    <Rating props={modalProps} />
-                    <Location props={modalProps} />
-                </div>
-                <Price props={modalProps} />
-                <div className={css.scroll_container}>
-                    <ul className={css.img_list}>
-                        {modalProps.gallery.map((item, index) => (
-                            <li className={css.img_box} key={index}>
-                                <img alt="car" src={item} width={290} height={310} />
-                            </li>
-                        ))}
+                <div className={css.modal_scrollbar}>
+                    <h3 className={css.modal_header}>{modalProps.name}</h3>
+                    <button className={css.close_button} type='button' onClick={handleCloseModal}>
+                        <svg className={css.close} >
+                            <use href={`${sprite}#icon-x`} width='32px' height={32} />
+                        </svg>
+                    </button>
+                    <div className={css.rating_location}>
+                        <Rating props={modalProps} />
+                        <Location props={modalProps} />
+                    </div>
+                    <Price props={modalProps} />
+                    <div className={css.scroll_container}>
+                        <ul className={css.img_list}>
+                            {modalProps.gallery.map((item, index) => (
+                                <li className={css.img_box} key={index}>
+                                    <img alt="car" src={item} width={290} height={310} />
+                                </li>
+                            ))}
+                        </ul>
+                        <p className={css.about}>{modalProps.description}</p>
+                    </div>
+                    <ul className={css.tabs}>
+                        <li className={css.tab}>
+                            <button className={activeTab === 'tab1' ? css.active : ''} onClick={() => handleTabClick('tab1')}>Features</button>
+                        </li>
+                        <li className={css.tab}>
+                            <button className={activeTab === 'tab2' ? css.active : ''} onClick={() => handleTabClick('tab2')}>Reviews</button>
+                        </li>
                     </ul>
-                    <p className={css.about}>{modalProps.description}</p>
-                </div>
-                <ul className={css.tabs}>
-                    <li className={css.tab}>
-                        <button className={activeTab === 'tab1' ? css.active : ''} onClick={() => handleTabClick('tab1')}>Features</button>
-                    </li>
-                    <li className={css.tab}>
-                        <button className={activeTab === 'tab2' ? css.active : ''} onClick={() => handleTabClick('tab2')}>Reviews</button>
-                    </li>
-                </ul>
-                <div className={css.tab_content}>
-                    {activeTab === 'tab1' && <Features props={modalProps} />}
-                    {activeTab === 'tab2' && <Reviews props={modalProps} />}
-                </div>
+                    <div className={css.tab_content}>
+                        {activeTab === 'tab1' && <Features props={modalProps} />}
+                        {activeTab === 'tab2' && <Reviews props={modalProps} />}
+                    </div></div>
             </div>
         </div>, document.getElementById('modal-root')
     ) : null;

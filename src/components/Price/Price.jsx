@@ -5,7 +5,7 @@ import ButtonFavorite from "components/ButtonFavorite/ButtonFavorite";
 const Price = ({ props }) => {
     function addDotAndTwoZerosToEnd(number) {
 
-        let result = number.toString() + ',00';
+        let result = number.toString() + '.00';
 
         return result;
     }

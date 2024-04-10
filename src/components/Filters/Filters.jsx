@@ -26,12 +26,19 @@ const Filters = () => {
         setType('');
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        handleApplyFilter();
+    };
+
     return (
         <div className={css.filters_box}>
-            <FilterLocation setLocation={setLocation} value={location} />
-            <FilterByEquipment setEquipment={setEquipment} value={equipment} />
-            <FilterByType setType={setType} value={type} />
-            <button type='button' className={css.search_button} onClick={handleApplyFilter}>Search</button>
+            <form onSubmit={handleSubmit}>
+                <FilterLocation setLocation={setLocation} value={location} handleApplyFilter={handleApplyFilter} />
+                <FilterByEquipment setEquipment={setEquipment} value={equipment} />
+                <FilterByType setType={setType} value={type} />
+                <button type='submit' className={css.search_button}>Search</button>
+            </form>
         </div>
     );
 };

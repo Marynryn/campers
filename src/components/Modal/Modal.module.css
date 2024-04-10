@@ -24,11 +24,11 @@
 }
 .modal_content::-webkit-scrollbar {
   width: 8px;
-  height: 100px;
+  height: 80px;
 }
 
 .modal_content::-webkit-scrollbar-thumb {
-  background-color: #888;
+  background-color: transparent;
   border-radius: 10px;
 }
 

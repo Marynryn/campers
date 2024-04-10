@@ -1,23 +1,11 @@
 import AdvertItem from "components/AdvertItem/AdvertItem";
-import { useEffect, useState } from "react";
+import Modal from "components/Modal/Modal";
+
+import { useSelector } from 'react-redux';
+import { selectFavorites } from "store/selectors";
 
 const Favorites = () => {
-    const [favoriteAdverts, setFavoriteAdverts] = useState([]);
-
-    useEffect(() => {
-        const handleStorageChange = () => {
-            const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-            setFavoriteAdverts(storedFavorites.reverse());
-        };
-
-        window.addEventListener("storage", handleStorageChange);
-        handleStorageChange();
-
-        return () => {
-            window.removeEventListener("storage", handleStorageChange);
-        };
-    }, []);
+    const favoriteAdverts = useSelector(selectFavorites);
 
     return (
         <div>
@@ -29,6 +17,7 @@ const Favorites = () => {
                     </li>
                 ))}
             </ul>
+            <Modal />
         </div>
     );
 }

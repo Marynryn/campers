@@ -8,12 +8,14 @@ const mySlice = createSlice({
       items: [],
       isLoading: false,
       error: null,
+      favorites: [],
     },
     filter: {
       location: '',
       equipment: [],
       type: '',
     },
+   
   },
   reducers: {
     setFilter: (state, action) => {
@@ -28,7 +30,16 @@ const mySlice = createSlice({
         state.filter.type = type;
       }
     },
+    addToFavorites: (state, { payload }) => {
+      state.adverts.favorites.push(payload);
+    },
+    removeFromFavorites: (state, { payload }) => {
+      state.adverts.favorites = state.adverts.favorites.filter(
+        favorites => favorites._id !== payload
+      );
+    },
   },
+
   extraReducers: builder => {
     builder
       .addCase(fetchAdverts.pending, (state, action) => {
@@ -47,4 +58,5 @@ const mySlice = createSlice({
 });
 
 export const advertsReducer = mySlice.reducer;
-export const { setFilter } = mySlice.actions;
+export const { setFilter, addToFavorites, removeFromFavorites } =
+  mySlice.actions;

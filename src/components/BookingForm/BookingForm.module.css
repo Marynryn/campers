@@ -25,6 +25,8 @@
   text-align: left;
   width: 367px;
   padding: 18px 18px 18px 18px;
+  border: var(--color-6);
+  background: #f7f7f7;
 }
 textarea {
   background: #f7f7f7;
@@ -44,7 +46,9 @@ textarea {
 }
 .react-datepicker-wrapper {
   border: none;
+  position: relative;
 }
+
 .calendar_color {
   color: var(--accent-color);
   background-color: transparent;
@@ -59,6 +63,10 @@ textarea {
   width: 403px;
   margin-bottom: 15px;
   border-radius: 10px;
+}
+.react-datepicker-popper {
+  position: absolute;
+  right: 50px;
 }
 .calendar_div input {
   padding: 18px;

@@ -6,7 +6,7 @@ const Rating = ({ props }) => {
             <svg className={css.icon_star} width={16} height={16}>
                 <use href={`${sprite}#icon-star-full`} />
             </svg>
-            <h4 className={css.reviews}>{props.rating}({props.reviews.length} Reviews)</h4>
+            <h4 className={css.reviews}>{props.rating} ({props.reviews.length} Reviews)</h4>
         </div>
     )
 }

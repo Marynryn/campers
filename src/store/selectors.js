@@ -43,3 +43,5 @@ export const selectVisibleAdverts = createSelector(
     });
   }
 );
+
+export const selectFavorites = state => state.adverts.adverts.favorites;
